@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ayam Gepuk-In | Gepuk-Nya Nagih!</title>
+  <meta name="description" content="Ayam gepuk, lele kriuk, dan sambal 250gr dari Vida Bumipala, Bekasi. Halal, buka tiap hari 08.00 sampai 22.00, catering tanpa minimal order.">
+  <meta name="theme-color" content="#7a1418">
+  <meta property="og:title" content="Ayam Gepuk-In | Gepuk-Nya Nagih!">
+  <meta property="og:description" content="Ayam goreng kriuk digepuk bareng sambal bawang di cobek batu. Vida Bumipala, Bekasi.">
+  <meta property="og:image" content="assets/img/menu/hero.webp">
+  <link rel="icon" href="assets/img/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/img/cut/ayam-gepuk.webp">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="chili" viewBox="0 0 32 32"><path d="M22 6c1-2 3-3 5-3-1 1-2 2-2 4" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M24 9c-3 9-10 17-19 19-2 0-2-2 0-3 7-4 11-10 13-17 1-2 5-2 6 1z" fill="currentColor"/></symbol>
+  </defs>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="nav__pill">
+    <a href="#top" class="nav__brand" aria-label="Ayam Gepuk-In, kembali ke atas"><img src="assets/img/logo.png" alt="" width="40" height="40"><span>Gepuk-In</span></a>
+    <nav class="nav__links" id="navLinks" aria-label="Navigasi utama">
+      <a href="#menu">Menu</a>
+      <a href="#sambal">Sambal</a>
+      <a href="#catering">Catering</a>
+      <a href="#lokasi">Lokasi</a>
+    </nav>
+    <div class="nav__act">
+      <button class="cart-btn" data-open-cart aria-label="Lihat pesanan">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.5L21 8H6.2"/><circle cx="10" cy="20.5" r="1.3"/><circle cx="17" cy="20.5" r="1.3"/></svg>
+        <b class="cart-count" hidden>0</b>
+      </button>
+      <a class="btn btn--chili btn--sm nav__cta" data-wa="Halo Ayam Gepuk-In, saya mau pesan" target="_blank" rel="noopener">Pesan</a>
+      <button class="burger" id="burger" aria-label="Buka navigasi" aria-expanded="false" aria-controls="navLinks"><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO: satu momen yang diingat = gepuk ayamnya sendiri -->
+<section class="hero">
+  <div class="hero__in">
+    <div class="hero__copy">
+      <p class="hero__where">Vida Bumipala, Bekasi. Sejak 2022.</p>
+      <h1 class="hero__title" id="heroTitle"><span>Gepuk-Nya</span> <span>Nagih!</span></h1>
+      <p class="hero__sub">Ayam goreng kriuk digepuk di cobek batu bareng sambal bawang, lalu ditemani nasi ngebul, lalapan, dan kremesan.</p>
+      <div class="hero__btns">
+        <a href="#menu" class="btn btn--kunyit">Lihat menu</a>
+        <a data-wa="Halo Ayam Gepuk-In, saya mau pesan" class="btn btn--ghost" target="_blank" rel="noopener">Pesan di WhatsApp</a>
+      </div>
+    </div>
+
+    <div class="stage" id="stage">
+      <div class="stage__sun" aria-hidden="true"></div>
+      <svg class="stamp" viewBox="0 0 200 200" aria-hidden="true">
+        <defs>
+          <path id="ring" d="M100 100 m-74 0 a74 74 0 1 1 148 0 a74 74 0 1 1 -148 0"/>
+          <clipPath id="logoClip"><circle cx="100" cy="100" r="46"/></clipPath>
+        </defs>
+        <circle cx="100" cy="100" r="96" />
+        <image href="assets/img/logo.png" x="54" y="54" width="92" height="92" clip-path="url(#logoClip)"/>
+        <text><textPath href="#ring" textLength="458" lengthAdjust="spacing">HALAL | SAMBAL SPESIALIS | SEJAK 2022 |</textPath></text>
+      </svg>
+      <button class="plate" id="plate" aria-label="Gepuk ayamnya" aria-describedby="hitHint">
+        <img src="assets/img/cut/ayam-gepuk.webp" alt="Ayam gepuk di cobek batu dengan nasi, lalapan, dan sambal" width="820" height="653">
+      </button>
+      <div class="pestle" id="pestle" aria-hidden="true">
+        <svg viewBox="0 0 120 220">
+          <defs>
+            <radialGradient id="stone" cx="35%" cy="30%" r="80%"><stop offset="0" stop-color="#5b514c"/><stop offset=".55" stop-color="#2b2421"/><stop offset="1" stop-color="#120d0b"/></radialGradient>
+          </defs>
+          <path d="M44 8c14-6 30 2 32 18 4 34 18 92 22 140 3 32-12 48-38 48S18 198 20 168c3-44 10-104 14-140 1-9 4-17 10-20z" fill="url(#stone)"/>
+          <g fill="#6d625d" opacity=".6"><circle cx="48" cy="60" r="2"/><circle cx="62" cy="110" r="2.6"/><circle cx="40" cy="150" r="2"/><circle cx="72" cy="168" r="1.8"/><circle cx="55" cy="190" r="2.4"/><circle cx="58" cy="34" r="1.6"/></g>
+        </svg>
+      </div>
+      <div class="sticker sticker--price" aria-hidden="true"><small>Sepiring lengkap</small><b>18rb</b><small>pakai nasi</small></div>
+      <p class="hit-hint" id="hitHint"><svg viewBox="0 0 60 40" aria-hidden="true"><path d="M4 30C14 10 34 4 52 12m0 0-9-6m9 6-6 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Coba gepuk ayamnya</span></p>
+      <p class="hit-count" id="hitCount" aria-live="polite" hidden></p>
+      <div class="bubble" id="bubble" hidden>
+        <p id="bubbleText"></p>
+        <button class="btn btn--chili btn--sm" id="bubbleBtn">Pesan yang ini</button>
+      </div>
+      <div class="crumbs" id="crumbs" aria-hidden="true"></div>
+    </div>
+  </div>
+</section>
+
+<div class="tape" aria-label="Info singkat">
+  <div class="tape__track">
+    <ul class="tape__list">
+      <li>Sambal spesialis</li><li>Bersertifikat halal</li><li>Buka tiap hari 08.00 sampai 22.00</li><li>Catering tanpa minimal order</li><li>Vida Bumipala, Bekasi</li>
+    </ul>
+    <ul class="tape__list" aria-hidden="true">
+      <li>Sambal spesialis</li><li>Bersertifikat halal</li><li>Buka tiap hari 08.00 sampai 22.00</li><li>Catering tanpa minimal order</li><li>Vida Bumipala, Bekasi</li>
+    </ul>
+  </div>
+</div>
+
+<section class="menu wrap" id="menu" aria-labelledby="menuTitle">
+  <div class="menu__head">
+    <h2 id="menuTitle">Mau digepuk yang mana?</h2>
+    <p>Semua sudah pakai sambal bawang. Mau sekalian nasi ngebul? Pilih <b>Pakai nasi</b>, harganya nambah 5rb.</p>
+  </div>
+  <div class="menu__ctrl">
+    <div class="seg" role="tablist" aria-label="Kategori menu">
+      <button class="is-on" data-tab="makanan" role="tab" aria-selected="true">Makanan</button>
+      <button data-tab="pendamping" role="tab" aria-selected="false">Teman makan</button>
+    </div>
+    <div class="switch" id="modeToggle" data-mode="paket" role="group" aria-label="Pakai nasi atau tidak">
+      <button class="is-on" data-mode="paket" aria-pressed="true">Pakai nasi</button>
+      <button data-mode="ala" aria-pressed="false">Tanpa nasi</button>
+      <span class="switch__knob" aria-hidden="true"></span>
+    </div>
+  </div>
+  <div class="dishes" id="menuGrid"></div>
+</section>
+
+<section class="sambal" id="sambal" aria-labelledby="sambalTitle">
+  <div class="wrap">
+    <div class="sambal__head">
+      <h2 id="sambalTitle">Pedasnya bisa dibawa pulang</h2>
+      <p>Sambal dari dapur kami, sekarang dalam toples 250gr. Buat stok di rumah, oleh-oleh, atau teman nasi anget jam sebelas malam.</p>
+    </div>
+    <ul class="shelf" id="sambalGrid"></ul>
+    <div class="tepung" id="tepungCard"></div>
+  </div>
+</section>
+
+<section class="catering wrap" id="catering" aria-labelledby="cateringTitle">
+  <div class="catering__copy">
+    <h2 id="cateringTitle">Rame-rame? Biar kami yang masak.</h2>
+    <p>Arisan, rapat kantor, syukuran, sampai Jumat Berkah. Menunya bisa request, dan <b>nggak ada minimal order</b>. Kami kemas per box lalu antar ke tempatmu.</p>
+    <a class="btn btn--chili" data-wa="Halo Ayam Gepuk-In, saya mau tanya catering. Jumlah porsi: ... Tanggal acara: ... Menu: ..." target="_blank" rel="noopener">Tanya catering di WhatsApp</a>
+  </div>
+  <div class="catering__pics">
+    <img class="pic pic--main" src="assets/img/menu/catering.webp" alt="Nasi box ayam gepuk siap antar" loading="lazy" width="1536" height="1024">
+    <figure class="pic pic--polaroid p1"><img src="assets/img/doc/catering-90.jpg" alt="Tim Gepuk-In mengantar pesanan 90 porsi" loading="lazy"><figcaption>Antar 90 porsi</figcaption></figure>
+    <figure class="pic pic--polaroid p2"><img src="assets/img/doc/catering-70.jpg" alt="Pesanan catering 70 porsi" loading="lazy"><figcaption>70 porsi, siap jalan</figcaption></figure>
+  </div>
+</section>
+
+<section class="soon wrap" aria-labelledby="soonTitle">
+  <div class="soon__head">
+    <h2 id="soonTitle">Lagi diracik di dapur</h2>
+    <p>Belum bisa dipesan. Mau dikabari duluan? <a data-wa="Halo Ayam Gepuk-In, kabari saya kalau menu baru sudah bisa dipesan ya" target="_blank" rel="noopener">Chat kami</a>.</p>
+  </div>
+  <ul class="soon__list" id="soonGrid"></ul>
+</section>
+
+<section class="testi" aria-label="Kata pelanggan">
+  <div class="wrap testi__in">
+    <figure class="testi__photo"><img src="assets/img/doc/cfd.jpg" alt="Om Aji bersama tim Gepuk-In di booth CFD Vida" loading="lazy"></figure>
+    <figure class="testi__quote">
+      <div class="stars" aria-label="Nilai 5 dari 5">★★★★★</div>
+      <blockquote>Ayam gepuknya kriuk, bumbunya berasa banget. Bukan cuma rasa yang enak, pelayanannya juga ramah sekali.</blockquote>
+      <figcaption><b>Om Aji</b>, langganan di booth CFD Pasar Alam Vida</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="lokasi wrap" id="lokasi" aria-labelledby="lokasiTitle">
+  <div class="lokasi__card">
+    <h2 id="lokasiTitle">Mampir, atau kami yang antar</h2>
+    <div class="clock" aria-label="Jam buka 08.00 sampai 22.00">
+      <div class="clock__bar"><span class="clock__open"></span><span class="clock__now" id="clockNow"></span></div>
+      <div class="clock__ticks" aria-hidden="true"><span>00</span><span>08</span><span>22</span><span>24</span></div>
+      <p class="clock__status" id="status"></p>
+    </div>
+    <div class="loc">
+      <h3>Outlet Vida Cluster Durian</h3>
+      <p>Vida Bumipala, Kota Bekasi 17156. Buka tiap hari.</p>
+    </div>
+    <div class="loc">
+      <h3>Booth CFD Pasar Alam Vida</h3>
+      <p>Tiap Car Free Day. Cari banner merah bergambar ayam.</p>
+    </div>
+    <a class="btn btn--line" id="mapsLink" target="_blank" rel="noopener">Buka di Google Maps</a>
+  </div>
+  <div class="pesan" id="pesan">
+    <h2>Pesan antar</h2>
+    <p>WhatsApp paling cepat kami balas.</p>
+    <a class="order order--wa" data-wa="Halo Ayam Gepuk-In, saya mau pesan" target="_blank" rel="noopener"><b>WhatsApp</b><span>0856-9206-1476</span></a>
+    <a class="order" id="goLink" target="_blank" rel="noopener"><b>GoFood</b><span>Cari "Ayam Gepuk-In"</span></a>
+    <a class="order" id="spLink" target="_blank" rel="noopener"><b>ShopeeFood</b><span>Cari "Ayam Gepuk-In"</span></a>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="foot__big" aria-hidden="true">Gepuk-Nya Nagih!</p>
+    <div class="foot__row">
+      <div class="foot__brand"><img src="assets/img/logo.png" alt="Logo Ayam Gepuk-In" width="56" height="56"><p>Ayam gepuk dan sambal spesialis<br>dari Vida Bumipala, Bekasi.</p></div>
+      <div class="foot__links">
+        <a id="igLink" target="_blank" rel="noopener">Instagram @ayamgepuk.in</a>
+        <a data-wa="Halo Ayam Gepuk-In" target="_blank" rel="noopener">WhatsApp 0856-9206-1476</a>
+        <span>Halal ID 32410030967601025</span>
+      </div>
+    </div>
+    <p class="foot__copy">© <span id="yr"></span> Ayam Gepuk-In</p>
+  </div>
+</footer>
+
+<div class="cart" id="cart" aria-hidden="true">
+  <div class="cart__bg" data-close-cart></div>
+  <aside class="cart__panel" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+    <div class="cart__head"><h3 id="cartTitle">Pesananmu</h3><button data-close-cart aria-label="Tutup">✕</button></div>
+    <div class="cart__list" id="cartList"></div>
+    <div class="cart__foot">
+      <label>Nama<input id="cName" autocomplete="name" placeholder="Biar kami tahu ini pesanan siapa"></label>
+      <label>Catatan<textarea id="cNote" rows="2" placeholder="Contoh: sambal dipisah, antar jam 12"></textarea></label>
+      <div class="cart__total"><span>Total</span><b id="cartTotal">Rp0</b></div>
+      <button class="btn btn--chili btn--block" id="sendWa">Kirim pesanan lewat WhatsApp</button>
+      <p class="cart__note">Ongkir dan jam antar kami konfirmasi di WhatsApp.</p>
+    </div>
+  </aside>
+</div>
+
+<button class="fab" data-open-cart aria-label="Lihat pesanan"><span>Lihat pesanan</span><b class="cart-count" hidden>0</b><em id="fabTotal"></em></button>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

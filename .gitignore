@@ -1,0 +1,10 @@
+# bahan mentah (tidak dipakai langsung oleh website)
+produk/
+ayamgepuk katalog/
+*.zip
+Referensi*.jpg
+Menu.txt
+
+# sistem
+.DS_Store
+Thumbs.db

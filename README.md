@@ -1,114 +1,258 @@
-<div align="center">
+<a href="https://ayamgepuk-web.vercel.app/">
+  <img src=".github/readme/banner.jpg" alt="Ayam Gepuk-In: landing page interaktif untuk UMKM kuliner, ditampilkan di laptop dan ponsel" width="100%">
+</a>
 
-<img src="assets/img/logo.png" alt="Logo Ayam Gepuk-In" width="140">
+<p align="center">
+  <a href="https://ayamgepuk-web.vercel.app/"><img src="https://img.shields.io/badge/Kunjungi_Website-7a1418?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Kunjungi Website"></a>
+</p>
 
-# Ayam Gepuk-In
+<p align="center">
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white" alt="HTML5">
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white" alt="CSS3">
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black" alt="JavaScript">
+  <img src="https://img.shields.io/badge/Deploy-Vercel-000000?style=flat-square&logo=vercel&logoColor=white" alt="Deploy di Vercel">
+  <img src="https://img.shields.io/badge/Dependensi-0-2f8f46?style=flat-square" alt="Tanpa dependensi">
+</p>
 
-### *Gepuk-Nya Nagih!* 🌶️
+<p align="center">
+  <a href="#tentang">Tentang</a> &nbsp;·&nbsp;
+  <a href="#tampilan">Tampilan</a> &nbsp;·&nbsp;
+  <a href="#fitur">Fitur</a> &nbsp;·&nbsp;
+  <a href="#menu">Menu</a> &nbsp;·&nbsp;
+  <a href="#menjalankan-secara-lokal">Instalasi</a> &nbsp;·&nbsp;
+  <a href="#mengelola-konten">Kelola Konten</a> &nbsp;·&nbsp;
+  <a href="PRD.md">PRD</a>
+</p>
 
-Landing page interaktif untuk UMKM kuliner **Ayam Gepuk-In** (sejak 2022) di Vida Bumipala, Kota Bekasi.
-Pengunjung bisa lihat menu, isi keranjang, lalu **pesan langsung lewat WhatsApp**.
+## Tentang
 
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![No Framework](https://img.shields.io/badge/No_Framework-Vanilla-8E1B1F?style=for-the-badge)
-![Mobile First](https://img.shields.io/badge/Mobile-First-F7B500?style=for-the-badge)
+**Ayam Gepuk-In** adalah warung ayam gepuk dan sambal spesialis di Vida Bumipala, Kota Bekasi, yang berdiri sejak 2022. Sebagian besar pelanggannya datang dari Instagram dan memesan lewat WhatsApp.
 
-<img src="assets/img/cut/ayam-gepuk.webp" alt="Ayam Gepuk" width="420">
+Website ini dibangun untuk satu tujuan: **membuat pengunjung bisa memesan dengan klik sesedikit mungkin.** Pengunjung cukup memilih menu dan mengisi keranjang. Pesanannya lalu tersusun otomatis menjadi pesan WhatsApp yang siap dikirim ke penjual.
 
-</div>
+- **Satu halaman, nol dependensi.** HTML, CSS, dan JavaScript murni, tanpa framework dan tanpa build step.
+- **Tanpa backend.** Pemesanan berjalan sepenuhnya lewat WhatsApp, jadi tidak perlu server, database, atau akun.
+- **Konten terpusat.** Menu, harga, kontak, dan jam buka dikelola dari satu file, [`js/data.js`](js/data.js).
 
----
+## Tampilan
 
-## ✨ Fitur Utama
+<img src=".github/readme/screens.jpg" alt="Empat tampilan ponsel: beranda, menu, keranjang, dan lokasi" width="100%">
 
-| | Fitur | Keterangan |
-|---|---|---|
-| 🛒 | **Keranjang belanja** | Tambah/kurangi item, total otomatis, tersimpan di `localStorage` |
-| 💬 | **Checkout ke WhatsApp** | Isi keranjang + nama + catatan otomatis jadi pesan WA siap kirim |
-| 🍗 | **Toggle Paket / Ala Carte** | Harga menu langsung berganti sesuai pilihan |
-| 🌶️ | **Sambal & Tepung kemasan** | 5 varian sambal 250gr + Tepung Gepuk-in |
-| 🎉 | **Catering** | Galeri bukti pesanan 50 sampai 90 porsi + CTA WA dengan template pesan |
-| 🕒 | **Status Buka/Tutup real-time** | Dihitung dari jam operasional 08.00 sampai 22.00 |
-| 🎵 | **Musik latar** | Bisa dinyalakan/dimatikan pengunjung |
-| 🎞️ | **Animasi scroll** | Elemen muncul halus memakai `IntersectionObserver` |
-| 📱 | **Responsif** | Didesain mobile-first, karena kebanyakan trafik datang dari Instagram |
-| ✅ | **Label Halal** | Logo halal resmi untuk membangun kepercayaan |
+<img src=".github/readme/themes.jpg" alt="Perbandingan bagian menu dalam mode terang dan mode gelap" width="100%">
 
-## 🍽️ Menu
+## Fitur
 
-<div align="center">
+**Pemesanan**
 
-| <img src="assets/img/cut/ayam-gepuk.webp" width="140"><br>**Ayam Gepuk** | <img src="assets/img/cut/lele-kriuk.webp" width="140"><br>**Lele Kriuk** | <img src="assets/img/cut/kremes-bawang.webp" width="140"><br>**Kremes Bawang** | <img src="assets/img/cut/kremes-ketumbar.webp" width="140"><br>**Kremes Ketumbar** |
-|:---:|:---:|:---:|:---:|
-| <img src="assets/img/cut/telur-dadar.webp" width="140"><br>**Telur Dadar Cabe Rawit** | <img src="assets/img/cut/tahu-ngebul.webp" width="140"><br>**Tahu Ngebul** | <img src="assets/img/cut/tempe-selimut.webp" width="140"><br>**Tempe Selimut** | <img src="assets/img/cut/tepung.webp" width="140"><br>**Tepung Gepuk-in** |
+- **Keranjang belanja** dengan total otomatis. Isinya tetap tersimpan walau halaman ditutup.
+- **Checkout ke WhatsApp.** Isi keranjang, nama, dan catatan disusun menjadi satu pesan siap kirim.
+- **Toggle *Pakai nasi / Tanpa nasi*** yang mengganti seluruh harga menu utama sekaligus.
+- **Varian dan pesanan khusus:** pilihan Dada atau Paha, menu *by request* (nasi kuning, tumpeng, nasi liwet), dan catering tanpa minimal order.
+- **Tiga kanal pemesanan:** WhatsApp, GoFood, dan ShopeeFood.
 
-**Sambal 250gr**
+**Interaksi**
 
-| <img src="assets/img/cut/sambal-bawang.webp" width="110"><br>Bawang Segar | <img src="assets/img/cut/sambal-cakalang.webp" width="110"><br>Cakalang | <img src="assets/img/cut/sambal-cumi.webp" width="110"><br>Cumi | <img src="assets/img/cut/sambal-ijo.webp" width="110"><br>Ijo Royo-royo | <img src="assets/img/cut/sambal-teri.webp" width="110"><br>Teri |
-|:---:|:---:|:---:|:---:|:---:|
+- **Mini game *Gepuk 10 Detik*** di bagian hero, lengkap dengan penghitung skor dan rekor.
+- **Status buka / tutup real-time** yang dihitung dari jam WIB.
+- **Ticker neon, galeri dokumentasi dengan lightbox,** dan soundtrack yang bisa dinyalakan atau dimatikan.
 
-</div>
+**Kualitas**
 
-## 📸 Dokumentasi Catering
+- **Mode gelap** yang mengikuti pengaturan perangkat dan bisa diganti manual.
+- **Mobile-first**, karena mayoritas pengunjung membuka website dari Instagram.
+- **Aksesibel:** fokus keyboard terlihat, label ARIA pada elemen interaktif, dan animasi dikurangi untuk pengguna `prefers-reduced-motion`.
+- **Siap dibagikan:** meta Open Graph dan Twitter Card untuk pratinjau tautan yang rapi.
 
-<div align="center">
-<img src="assets/img/doc/catering-50.jpg" width="200">
-<img src="assets/img/doc/catering-70.jpg" width="200">
-<img src="assets/img/doc/catering-80.jpg" width="200">
-<img src="assets/img/doc/catering-90.jpg" width="200">
-</div>
+### Alur pemesanan
 
-## 🎨 Identitas Visual
+1. Pengunjung memilih menu beserta variannya, lalu menekan **Tambah**.
+2. Keranjang menghitung total, lalu pengunjung mengisi nama dan catatan.
+3. Tombol **Kirim pesanan lewat WhatsApp** membuka `wa.me` dengan pesan yang sudah tersusun.
+4. Penjual mengonfirmasi ongkir dan jam antar di WhatsApp.
 
-| Warna | Hex | Peran |
-|---|---|---|
-| ![](https://img.shields.io/badge/-%20%20%20%20%20-8E1B1F?style=flat-square) Maroon | `#8E1B1F` | Warna utama brand |
-| ![](https://img.shields.io/badge/-%20%20%20%20%20-F7B500?style=flat-square) Kuning | `#F7B500` | Aksen dan CTA |
-| ![](https://img.shields.io/badge/-%20%20%20%20%20-FFF6E6?style=flat-square) Krem | `#FFF6E6` | Latar hangat |
+```text
+Halo Ayam Gepuk-In, saya mau pesan:
+- 2x Ayam Gepuk Paha, pakai nasi (Rp38.000)
+- 1x Lele Kriuk, pakai nasi (Rp16.000)
+- 1x Sambal Bawang Segar 250gr (Rp30.000)
 
-Palet warna diambil dari logo dan feed Instagram Ayam Gepuk-In.
-
-## 🗂️ Struktur Proyek
-
+Total: Rp84.000
+Nama: Budi
+Catatan: Sambal dipisah, antar jam 12
 ```
+
+## Menu
+
+<img src=".github/readme/menu.jpg" alt="Daftar menu Ayam Gepuk-In beserta harga, sambal toples 250gr, dan Tepung Gepuk-in" width="100%">
+
+<details>
+<summary><b>Daftar harga lengkap</b></summary>
+<br>
+
+| Menu | Pakai nasi | Tanpa nasi |
+| :--- | ---: | ---: |
+| Ayam Gepuk (Dada / Paha) | Rp18.000 / Rp19.000 | Rp13.000 / Rp14.000 |
+| Lele Kriuk | Rp16.000 | Rp11.000 |
+| Ayam Kremes Bawang Putih | Rp18.000 | Rp13.000 |
+| Ayam Kremes Ketumbar | Rp18.000 | Rp13.000 |
+| Telur Dadar Cabe Rawit | Rp12.000 | Rp7.000 |
+
+| Produk lain | Harga |
+| :--- | ---: |
+| Tahu Ngebul / Tempe Selimut Daun Bawang (isi 4) | Rp5.000 |
+| Sambal Bawang Segar / Ijo Royo-royo (250gr) | Rp30.000 |
+| Sambal Cakalang / Cumi / Teri (250gr) | Rp35.000 |
+| Tepung Gepuk-in (250gr) | Rp7.000 |
+
+Sumber data harga ada di [`js/data.js`](js/data.js). Jika ada perbedaan, file tersebut yang menjadi acuan.
+
+</details>
+
+## Teknologi
+
+| Lapisan | Teknologi |
+| :--- | :--- |
+| Struktur | HTML5 semantik dengan atribut ARIA |
+| Tampilan | CSS3: custom properties, Grid, Flexbox, container queries, animasi |
+| Logika | JavaScript modern (ES2020), tanpa library |
+| Tipografi | Bagel Fat One dan Figtree dari Google Fonts |
+| Aset | Foto WebP, *lazy loading* untuk gambar di bawah layar |
+| Hosting | Vercel (situs statis) |
+
+Seluruh konten dirender dari satu sumber data. `main.js` membaca `data.js`, membangun tampilan di `index.html`, menyimpan preferensi pengunjung di browser, dan meneruskan pesanan ke WhatsApp.
+
+```mermaid
+flowchart LR
+    data["js/data.js<br/>menu · harga · kontak"] --> main["js/main.js<br/>render · keranjang · interaksi"]
+    main --> dom["index.html<br/>tampilan"]
+    main --> ls[("localStorage<br/>preferensi pengunjung")]
+    main --> wa["wa.me<br/>pesan WhatsApp"]
+    classDef brand fill:#7a1418,stroke:#4e0b0e,color:#fff9ef
+    classDef accent fill:#ffb703,stroke:#c98a00,color:#1e1714
+    class data,main brand
+    class dom,ls,wa accent
+```
+
+<details>
+<summary><b>Data yang disimpan di browser pengunjung</b></summary>
+<br>
+
+| Key | Isi |
+| :--- | :--- |
+| `agi-cart` | Isi keranjang belanja |
+| `agi-theme` | Pilihan tema, `light` atau `dark` |
+| `agi-best` | Rekor mini game Gepuk 10 Detik |
+| `agi-music` | Preferensi lagu latar, `on` atau `off` |
+
+Tidak ada data yang dikirim ke server. Pesanan baru keluar dari browser saat pengunjung menekan tombol kirim ke WhatsApp.
+
+</details>
+
+## Struktur Proyek
+
+```text
 AyamGepuk-Web/
-├── index.html          # Halaman utama (satu halaman)
+├── index.html          Kerangka halaman (satu halaman)
 ├── css/
-│   └── style.css       # Seluruh styling + animasi
+│   └── style.css       Styling, tema gelap, dan animasi
 ├── js/
-│   ├── data.js         # Data menu, harga, sambal, produk "Segera Hadir"
-│   └── main.js         # Keranjang, checkout WA, toggle harga, status buka, animasi
+│   ├── data.js         Sumber data: kontak, jam buka, menu, harga, ticker, dokumentasi
+│   └── main.js         Render konten, keranjang, checkout WhatsApp, mini game, interaksi
 ├── assets/
-│   ├── img/            # Logo, foto menu (webp), dokumentasi
-│   └── lagu/           # Musik latar
-└── PRD.md              # Dokumen kebutuhan produk
+│   ├── img/
+│   │   ├── cut/        Foto menu berlatar transparan
+│   │   ├── menu/       Foto produk, sambal, dan hero
+│   │   └── doc/        Dokumentasi pesanan dan catering
+│   └── lagu/           Soundtrack Ayam Gepuk-In
+├── .github/readme/     Gambar untuk README
+└── PRD.md              Dokumen kebutuhan produk
 ```
 
-## 🚀 Cara Menjalankan
+## Menjalankan Secara Lokal
 
-Tidak perlu install apa pun karena proyek ini memakai HTML, CSS, dan JS murni.
+Tidak ada yang perlu di-install. Cukup browser modern, ditambah Node.js atau Python jika ingin memakai server lokal.
 
 ```bash
 git clone https://github.com/Naufal-Ghani22/AyamGepuk-Web.git
 cd AyamGepuk-Web
-# buka index.html langsung di browser, atau jalankan server lokal:
-npx serve .
+
+npx serve .                  # buka http://localhost:3000
+# atau
+python -m http.server 8000   # buka http://localhost:8000
 ```
 
-> 💡 Untuk mengubah menu atau harga, cukup edit `js/data.js`.
+> [!TIP]
+> `index.html` juga bisa langsung dibuka di browser. Server lokal tetap disarankan agar perilakunya sama dengan versi online.
 
-## 📄 Dokumentasi
+## Mengelola Konten
 
-Kebutuhan produk lengkap (tujuan, target pengguna, struktur section, data menu) ada di [`PRD.md`](PRD.md).
+Semua konten yang sering berubah ada di [`js/data.js`](js/data.js), sehingga HTML tidak perlu disentuh.
+
+| Yang ingin diubah | Lokasi | Catatan |
+| :--- | :--- | :--- |
+| Nomor WhatsApp | `CONFIG.wa` | Format internasional tanpa `+`, contoh `6285692061476` |
+| Jam buka dan tutup | `CONFIG.open`, `CONFIG.close` | Format 24 jam, zona WIB |
+| Tautan GoFood, ShopeeFood, Maps, Instagram | `CONFIG` | |
+| Menu dan harga | `MENU.makanan`, `MENU.pendamping` | Harga dalam ribuan: `18` berarti Rp18.000 |
+| Sambal dan tepung | `MENU.sambal`, `MENU.tepung` | |
+| Menu *by request* | `MENU.byreq` | Tanpa harga, dikonfirmasi lewat WhatsApp |
+| Produk segera hadir | `MENU.soon` | |
+| Teks ticker | `TICKER.atas` | Warna neon: `merah`, `kuning`, atau `hijau` |
+| Foto dokumentasi | `DOK` | |
+
+Contoh menambah menu baru di `MENU.makanan`:
+
+```js
+{ id: "ayam-bakar", name: "Ayam Bakar", desc: "Sambal bawang, lalapan", paket: 20, ala: 15 },
+```
+
+Simpan fotonya sebagai `assets/img/cut/ayam-bakar.webp`, dengan nama file yang sama seperti `id`.
+
+> [!NOTE]
+> Setelah mengganti foto menu, naikkan angka versi `?v=4` pada fungsi `cut` di [`js/main.js`](js/main.js) agar browser pengunjung tidak menampilkan foto lama dari cache.
+
+## Deploy
+
+Situs ini statis, jadi bisa di-host di mana saja tanpa build step.
+
+| Platform | Pengaturan |
+| :--- | :--- |
+| Vercel | Import repositori, pilih preset *Other*, kosongkan build command |
+| Netlify | Publish directory `./`, tanpa build command |
+| GitHub Pages | Settings → Pages → deploy dari branch `main`, folder root |
+
+> [!IMPORTANT]
+> Meta `og:url` dan `og:image` di `index.html` mengarah ke `ayamgepuk-web.vercel.app`. Perbarui keduanya jika domain berubah agar pratinjau tautan di WhatsApp dan media sosial tetap muncul.
+
+## Identitas Visual
+
+<img src=".github/readme/brand.jpg" alt="Palet warna Maroon, Cabai, Kunyit, Daun, Nasi, Cobek, serta tipografi Bagel Fat One dan Figtree" width="100%">
+
+Palet warna diambil dari bahan masakan dan logo Ayam Gepuk-In. Semua warna didefinisikan sebagai CSS custom properties di [`css/style.css`](css/style.css).
+
+## Rencana Pengembangan
+
+- [ ] Ganti tautan Google Maps dengan titik lokasi outlet yang sebenarnya.
+- [ ] Rilis produk yang sedang disiapkan: Lem Kuning, Ayam Gepuk Frozen, Tepung Marinasi, dan Ayam Goreng Lengkuas.
+
+Pembayaran online, login, dan panel admin berada di luar lingkup versi ini. Rincian kebutuhan produk ada di [`PRD.md`](PRD.md).
+
+## Hak Cipta
+
+Logo, foto produk, foto dokumentasi, dan soundtrack adalah aset merek milik Ayam Gepuk-In dan tidak untuk digunakan ulang tanpa izin.
 
 ---
 
-<div align="center">
+<p align="center">
+  <img src="assets/img/logo.png" alt="Logo Ayam Gepuk-In" width="56">
+</p>
 
-📍 **Vida Bumipala, Kota Bekasi** · 🕗 Buka 08.00 sampai 22.00
-
-Dibuat dengan ❤️ dan 🌶️ untuk **Ayam Gepuk-In**
-
-</div>
+<p align="center">
+  <b>Ayam Gepuk-In</b> · Vida Bumipala, Kota Bekasi · Buka setiap hari 08.00–22.00
+  <br>
+  <a href="https://ayamgepuk-web.vercel.app/">Website</a> &nbsp;·&nbsp;
+  <a href="https://instagram.com/ayamgepuk.in">Instagram</a> &nbsp;·&nbsp;
+  <a href="https://wa.me/6285692061476">WhatsApp</a>
+  <br>
+  <sub>Dirancang dan dikembangkan oleh <a href="https://github.com/Naufal-Ghani22">Naufal-Ghani22</a></sub>
+</p>

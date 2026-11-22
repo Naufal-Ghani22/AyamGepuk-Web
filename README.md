@@ -19,6 +19,7 @@
   <a href="#tampilan">Tampilan</a> &nbsp;·&nbsp;
   <a href="#fitur">Fitur</a> &nbsp;·&nbsp;
   <a href="#menu">Menu</a> &nbsp;·&nbsp;
+  <a href="#qr-code">QR Code</a> &nbsp;·&nbsp;
   <a href="#menjalankan-secara-lokal">Instalasi</a> &nbsp;·&nbsp;
   <a href="#mengelola-konten">Kelola Konten</a> &nbsp;·&nbsp;
   <a href="PRD.md">PRD</a>
@@ -44,8 +45,8 @@ Website ini dibangun untuk satu tujuan: **membuat pengunjung bisa memesan dengan
 
 **Pemesanan**
 
-- **Keranjang belanja** dengan total otomatis. Isinya tetap tersimpan walau halaman ditutup.
-- **Checkout ke WhatsApp.** Isi keranjang, nama, dan catatan disusun menjadi satu pesan siap kirim.
+- **Keranjang belanja** dengan total otomatis. Isinya tetap tersimpan walau halaman ditutup, dan harganya otomatis mengikuti data menu terbaru.
+- **Checkout ke WhatsApp.** Isi keranjang, nama, alamat antar, dan catatan disusun menjadi satu pesan siap kirim.
 - **Toggle *Pakai nasi / Tanpa nasi*** yang mengganti seluruh harga menu utama sekaligus.
 - **Varian dan pesanan khusus:** pilihan Dada atau Paha, menu *by request* (nasi kuning, tumpeng, nasi liwet), dan catering tanpa minimal order.
 - **Tiga kanal pemesanan:** WhatsApp, GoFood, dan ShopeeFood.
@@ -66,7 +67,7 @@ Website ini dibangun untuk satu tujuan: **membuat pengunjung bisa memesan dengan
 ### Alur pemesanan
 
 1. Pengunjung memilih menu beserta variannya, lalu menekan **Tambah**.
-2. Keranjang menghitung total, lalu pengunjung mengisi nama dan catatan.
+2. Keranjang menghitung total, lalu pengunjung mengisi nama, alamat antar, dan catatan.
 3. Tombol **Kirim pesanan lewat WhatsApp** membuka `wa.me` dengan pesan yang sudah tersusun.
 4. Penjual mengonfirmasi ongkir dan jam antar di WhatsApp.
 
@@ -78,8 +79,11 @@ Halo Ayam Gepuk-In, saya mau pesan:
 
 Total: Rp84.000
 Nama: Budi
+Alamat: Vida Cluster Durian Blok A1 No. 5
 Catatan: Sambal dipisah, antar jam 12
 ```
+
+Baris Nama, Alamat, dan Catatan hanya muncul jika diisi, jadi pelanggan yang ambil sendiri cukup mengosongkan alamat.
 
 ## Menu
 
@@ -91,7 +95,7 @@ Catatan: Sambal dipisah, antar jam 12
 
 | Menu | Pakai nasi | Tanpa nasi |
 | :--- | ---: | ---: |
-| Ayam Gepuk (Dada / Paha) | Rp18.000 / Rp19.000 | Rp13.000 / Rp14.000 |
+| Ayam Gepuk (Dada atau Paha) | Rp19.000 | Rp14.000 |
 | Lele Kriuk | Rp16.000 | Rp11.000 |
 | Ayam Kremes Bawang Putih | Rp18.000 | Rp13.000 |
 | Ayam Kremes Ketumbar | Rp18.000 | Rp13.000 |
@@ -107,6 +111,23 @@ Catatan: Sambal dipisah, antar jam 12
 Sumber data harga ada di [`js/data.js`](js/data.js). Jika ada perbedaan, file tersebut yang menjadi acuan.
 
 </details>
+
+## QR Code
+
+<p align="center">
+  <img src=".github/readme/qr-poster.jpg" alt="Poster QR code Ayam Gepuk-In bertuliskan Scan &amp; Pesan" width="360">
+</p>
+
+QR code mengarah ke [ayamgepuk-web.vercel.app](https://ayamgepuk-web.vercel.app/) dan dibuat dengan tingkat koreksi kesalahan tertinggi (H), sehingga tetap terbaca meski ada logo di tengahnya. Semua file ada di [`assets/qr/`](assets/qr/).
+
+| File | Ukuran | Kegunaan |
+| :--- | :--- | :--- |
+| [`qr-ayamgepuk-poster.png`](assets/qr/qr-ayamgepuk-poster.png) | 1800 × 2400 px | Poster siap cetak untuk meja, etalase, atau booth CFD |
+| [`qr-ayamgepuk.png`](assets/qr/qr-ayamgepuk.png) | 2048 × 2048 px | QR saja, untuk ditempel di desain lain |
+| [`qr-ayamgepuk.svg`](assets/qr/qr-ayamgepuk.svg) | Vektor | Tetap tajam di ukuran cetak berapa pun, termasuk spanduk |
+
+> [!TIP]
+> Saat mencetak, beri jarak kosong di sekeliling QR dan pastikan lebarnya minimal 2,5 cm agar mudah dipindai.
 
 ## Teknologi
 
@@ -163,6 +184,7 @@ AyamGepuk-Web/
 │   │   ├── cut/        Foto menu berlatar transparan
 │   │   ├── menu/       Foto produk, sambal, dan hero
 │   │   └── doc/        Dokumentasi pesanan dan catering
+│   ├── qr/             QR code website: poster, PNG, dan SVG
 │   └── lagu/           Soundtrack Ayam Gepuk-In
 ├── .github/readme/     Gambar untuk README
 └── PRD.md              Dokumen kebutuhan produk
@@ -222,7 +244,7 @@ Situs ini statis, jadi bisa di-host di mana saja tanpa build step.
 | GitHub Pages | Settings → Pages → deploy dari branch `main`, folder root |
 
 > [!IMPORTANT]
-> Meta `og:url` dan `og:image` di `index.html` mengarah ke `ayamgepuk-web.vercel.app`. Perbarui keduanya jika domain berubah agar pratinjau tautan di WhatsApp dan media sosial tetap muncul.
+> Meta `og:url` dan `og:image` di `index.html`, juga QR code di `assets/qr/`, mengarah ke `ayamgepuk-web.vercel.app`. Perbarui semuanya jika domain berubah agar pratinjau tautan dan QR code tetap mengarah ke alamat yang benar.
 
 ## Identitas Visual
 

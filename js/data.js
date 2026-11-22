@@ -12,7 +12,7 @@ const CONFIG = {
 
 const MENU = {
   makanan: [
-    { id: "ayam-gepuk", name: "Ayam Gepuk", desc: "Sambal bawang, lalapan, kremesan", paket: [18, 19], ala: [13, 14], variants: ["Dada", "Paha"], lead: true },
+    { id: "ayam-gepuk", name: "Ayam Gepuk", desc: "Sambal bawang, lalapan, kremesan", paket: 19, ala: 14, variants: ["Dada", "Paha"], lead: true },
     { id: "lele-kriuk", name: "Lele Kriuk", desc: "Sambal bawang, lalapan, kremesan", paket: 16, ala: 11, tint: "kunyit" },
     { id: "kremes-bawang", name: "Kremes Bawang Putih", desc: "Ayam, sambal bawang, lalapan", paket: 18, ala: 13, tint: "daun" },
     { id: "kremes-ketumbar", name: "Kremes Ketumbar", desc: "Ayam, sambal bawang, lalapan", paket: 18, ala: 13, tint: "cabai" },
@@ -51,7 +51,7 @@ const MENU = {
 const TICKER = {
   atas: [
     { label: "Jam buka", text: "tiap hari 08.00 sampai 22.00", c: "kuning" },
-    { label: "Ayam Gepuk", text: "Rp13.000, pakai nasi Rp18.000", c: "merah" },
+    { label: "Ayam Gepuk", text: "Rp14.000, pakai nasi Rp19.000", c: "merah" },
     { label: "Lele Kriuk", text: "Rp16.000 pakai nasi", c: "hijau" },
     { label: "Sambal 250gr", text: "5 varian, mulai Rp30.000", c: "merah" },
     { label: "Catering", text: "tanpa minimal order, pernah antar 90 porsi sekaligus", c: "kuning" },

@@ -157,7 +157,7 @@
   $("#againBtn").addEventListener("click", () => { reset(); plate.focus({ preventScroll: true }); });
   $("#bubbleBtn").addEventListener("click", () => {
     const m = MENU.makanan[0];
-    addCart(`${m.name} Dada, pakai nasi`, m.paket[0]);
+    addCart(`${m.name} Dada, pakai nasi`, Array.isArray(m.paket) ? m.paket[0] : m.paket);
     bubble.hidden = true;
     setCart(true);
   });
@@ -289,6 +289,17 @@
   let cart = [];
   try { cart = JSON.parse(localStorage.getItem("agi-cart")) || []; } catch {}
   const save = () => { try { localStorage.setItem("agi-cart", JSON.stringify(cart)); } catch {} };
+  // keranjang lama di localStorage bisa menyimpan harga usang: selaraskan dengan data.js terbaru
+  const priceByLabel = new Map();
+  MENU.makanan.forEach((m) => (m.variants || [""]).forEach((v, j) => [["paket", "pakai nasi"], ["ala", "tanpa nasi"]].forEach(([k, t]) => {
+    const p = m[k];
+    priceByLabel.set(`${m.name}${v ? ` ${v}` : ""}, ${t}`, Array.isArray(p) ? p[j] : p);
+  })));
+  MENU.pendamping.forEach((m) => priceByLabel.set(m.name, m.price));
+  [...MENU.sambal, MENU.tepung].forEach((m) => priceByLabel.set(`${m.name} 250gr`, m.price));
+  cart = cart.filter((c) => c && c.qty > 0);
+  cart.forEach((c) => { if (priceByLabel.has(c.name)) c.price = priceByLabel.get(c.name); });
+  save();
   const lineOf = (c) => (c.price == null ? "harga menyusul" : rp(c.qty * c.price));
   function addCart(name, price, btn, qty = 1) {
     const f = cart.find((c) => c.name === name);
@@ -327,10 +338,10 @@
     renderCart();
   });
   $("#sendWa").addEventListener("click", () => {
-    const name = $("#cName").value.trim(), note = $("#cNote").value.trim();
+    const name = $("#cName").value.trim(), addr = $("#cAddr").value.trim().replace(/\s*\n\s*/g, ", "), note = $("#cNote").value.trim();
     const total = cart.reduce((a, c) => a + c.qty * c.price, 0);
     const msg = `Halo Ayam Gepuk-In, saya mau pesan:\n${cart.map((c) => `- ${c.qty}x ${c.name} (${lineOf(c)})`).join("\n")}\n\nTotal: ${rp(total)}` + (cart.some((c) => c.price == null) ? " + menu request (harga menyusul)" : "") +
-      (name ? `\nNama: ${name}` : "") + (note ? `\nCatatan: ${note}` : "");
+      (name ? `\nNama: ${name}` : "") + (addr ? `\nAlamat: ${addr}` : "") + (note ? `\nCatatan: ${note}` : "");
     window.open(waUrl(msg), "_blank", "noopener");
   });
   const cartEl = $("#cart");

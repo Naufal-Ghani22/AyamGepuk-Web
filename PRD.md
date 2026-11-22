@@ -1,6 +1,6 @@
 # PRD | Website Ayam Gepuk-In
 
-Versi 1.0 | 18 Nov 2026 | Lingkup: **front end saja** (HTML + CSS + JS murni, tanpa backend)
+Versi 1.1 | 22 Nov 2026 | Lingkup: **front end saja** (HTML + CSS + JS murni, tanpa backend)
 
 ## 1. Ringkasan
 Landing page satu halaman untuk UMKM **Ayam Gepuk-In** (sejak 2022, Vida Bumipala, Kota Bekasi). Tujuan utama: pengunjung melihat menu + harga dengan jelas lalu **pesan lewat WhatsApp** dalam sesedikit mungkin klik. Tagline: **"Gepuk-Nya Nagih!"**
@@ -37,14 +37,14 @@ Mobile-first: ±85% trafik diasumsikan dari Instagram.
 | 7 | Segera Hadir | Lem Kuning frozen, Ayam Gepuk frozen, Tepung Marinasi, Ayam Goreng Lengkuas | Kartu redup + label "Segera" |
 | 8 | Testimoni | Om Aji, bintang 5 (satu-satunya testimoni nyata) | Tidak mengarang testimoni lain |
 | 9 | Lokasi | Vida Cluster Durian + booth CFD Pasar Alam Vida, jam buka, status Buka/Tutup real-time | Tombol Maps |
-| 10 | Pesan | WA, GoFood, ShopeeFood | Link GoFood/ShopeeFood/Maps = placeholder sampai dikirim |
+| 10 | Pesan | WA, GoFood, ShopeeFood | Link GoFood & ShopeeFood terpasang; link Maps masih pencarian umum |
 | 11 | Footer | Logo, IG, WA, halal ID, © | |
-| + | Keranjang | Drawer: daftar item, qty +/-, total, nama + catatan | "Kirim ke WhatsApp" membentuk pesan otomatis ke +62 856-9206-1476; disimpan di localStorage |
+| + | Keranjang | Drawer: daftar item, qty +/-, total, nama + alamat antar + catatan | "Kirim ke WhatsApp" membentuk pesan otomatis ke +62 856-9206-1476 (baris nama/alamat/catatan hanya jika diisi); disimpan di localStorage, harga diselaraskan ulang dengan `js/data.js` saat halaman dibuka |
 
 ## 6. Data menu (sumber: Menu.txt, aturan nasi = +5K)
 | Menu | Paket Kenyang | Ala Carte |
 |---|---|---|
-| Ayam Gepuk (+ sambal bawang, lalapan, kremesan) | 18K sampai 19K | 13K sampai 14K |
+| Ayam Gepuk (+ sambal bawang, lalapan, kremesan) | 19K | 14K |
 | Lele Kriuk | 16K | 11K |
 | Ayam Kremes Bawang Putih | 18K | 13K |
 | Ayam Kremes Ketumbar | 18K | 13K |
@@ -52,7 +52,7 @@ Mobile-first: ±85% trafik diasumsikan dari Instagram.
 
 Pendamping: Tahu Ngebul 4pcs 5K, Tempe Selimut Daun Bawang 4pcs 5K.
 Sambal 250gr: Bawang Segar 30K, Cakalang 35K, Cumi 35K, Ijo Royo-royo 30K, Teri 35K. Tepung Gepuk-in 250gr 7K.
-Ayam Gepuk (harga rentang): di keranjang pilih **Dada / Paha**, dada = harga atas.
+Ayam Gepuk: di keranjang pilih **Dada / Paha**, harga keduanya sama (per 22 Nov 2026 naik dari 18K/13K menjadi 19K/14K).
 
 > Catatan: Menu.txt mencantumkan ala carte kremes 18K dan lele 16K (sama dengan paket). PRD memakai aturan "ala carte = paket − 5K" yang sudah dikonfirmasi sebelumnya. **Mohon dicek ulang.**
 
@@ -61,12 +61,17 @@ Ayam Gepuk (harga rentang): di keranjang pilih **Dada / Paha**, dada = harga ata
 - Lighthouse mobile ≥ 90; gambar dioptimasi, `loading="lazy"`.
 - Aksesibel: kontras AA, fokus keyboard terlihat, `prefers-reduced-motion` dihormati.
 - Data menu terpusat di `js/data.js` agar mudah diubah tanpa menyentuh HTML.
-- Foto menu: slot `assets/img/menu/<id>.jpg`; bila belum ada, tampil ilustrasi piring placeholder otomatis.
+- Foto menu: cutout `assets/img/cut/<id>.webp` untuk kartu menu, foto berlatar `assets/img/menu/<id>.webp` untuk sambal dan produk segera hadir.
 - Separator teks di layar memakai " | ".
 
 ## 8. Di luar lingkup (v1)
 Backend, pembayaran online, login, admin panel, CMS.
 
 ## 9. Aset yang masih ditunggu
-- Foto produk GPT (lihat PROMPT-GAMBAR-GPT.md di folder proyek lama), simpan sebagai `assets/img/menu/<id>.jpg` (id ada di `js/data.js`).
-- Link GoFood, ShopeeFood, Google Maps.
+- Link Google Maps titik outlet (saat ini `CONFIG.maps` masih pencarian umum).
+
+## 10. Riwayat perubahan
+| Versi | Tanggal | Perubahan |
+|---|---|---|
+| 1.1 | 22 Nov 2026 | Harga Ayam Gepuk 19K (paket) / 14K (ala carte); kolom alamat antar di keranjang dan pesan WhatsApp; QR code website di `assets/qr/` |
+| 1.0 | 18 Nov 2026 | Versi awal |

@@ -307,11 +307,12 @@
   </aside>
 </div>
 
-<button class="fab" data-open-cart aria-label="Lihat pesanan"><span>Lihat pesanan</span><b class="cart-count" hidden>0</b><em id="fabTotal"></em></button>
+<button class="fab" id="fabCart" data-open-cart aria-label="Lihat pesanan"><span>Lihat pesanan</span><b class="cart-count" hidden>0</b><em id="fabTotal"></em></button>
+<a class="fab fab--wa" id="fabWa" data-wa="Halo Ayam Gepuk-In, saya mau pesan" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#ico-wa"/></svg><span>Pesan lewat WhatsApp</span></a>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <div class="music" id="music">
-  <audio id="song" src="assets/lagu/Ayam%20Gepuk-in%20Soundtrack.mp3" loop preload="auto"></audio>
+  <audio id="song" src="assets/lagu/Ayam%20Gepuk-in%20Soundtrack.mp3" loop preload="none"></audio>
   <button class="music__disc" id="musicBtn" aria-pressed="false" aria-label="Nyalakan lagu">
     <span class="music__vinyl"><img src="assets/img/logo.png" alt=""></span>
     <span class="music__eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>

@@ -121,7 +121,7 @@
 
   const hit = (cx, cy) => {
     if (state === "done") {
-      game.animate([{ translate: "0 0" }, { translate: "-6px 0" }, { translate: "6px 0" }, { translate: "0 0" }], { duration: 260 });
+      game.animate([{ translate: "-50% 0" }, { translate: "calc(-50% - 6px) 0" }, { translate: "calc(-50% + 6px) 0" }, { translate: "-50% 0" }], { duration: 260 });
       return;
     }
     if (state === "idle") start();
@@ -301,6 +301,13 @@
   cart.forEach((c) => { if (priceByLabel.has(c.name)) c.price = priceByLabel.get(c.name); });
   save();
   const lineOf = (c) => (c.price == null ? "harga menyusul" : rp(c.qty * c.price));
+  // FAB mobile: keranjang berisi = "Lihat pesanan"; kosong = "Pesan lewat WhatsApp", tapi baru muncul setelah hero
+  // lewat karena hero sudah punya tombol WhatsApp sendiri (inHero diatur observer hero di bagian LAGU)
+  let inHero = true, cartN = 0;
+  const syncFab = () => {
+    $("#fabCart").classList.toggle("is-on", cartN > 0);
+    $("#fabWa").classList.toggle("is-on", !cartN && !inHero);
+  };
   function addCart(name, price, btn, qty = 1) {
     const f = cart.find((c) => c.name === name);
     f ? (f.qty += qty) : cart.push({ name, price, qty });
@@ -318,7 +325,8 @@
     const n = cart.reduce((a, c) => a + c.qty, 0);
     const total = cart.reduce((a, c) => a + c.qty * c.price, 0);
     $$(".cart-count").forEach((b) => { b.textContent = n; b.hidden = !n; });
-    $(".fab").classList.toggle("is-on", n > 0);
+    cartN = n;
+    syncFab();
     $("#fabTotal").textContent = n ? rp(total) : "";
     $("#cartTotal").textContent = rp(total);
     $("#cartList").innerHTML = n
@@ -382,9 +390,10 @@
   $("#clockNow").style.left = (h / 24) * 100 + "%";
   $("#clockNow").dataset.t = hhmm;
   $("#status").classList.toggle("is-closed", !open);
+  // teks dibungkus span: kalau lepas, flex memecahnya jadi kolom terpisah di layar sempit
   $("#status").innerHTML = open
-    ? `<span class="dot"></span><b>Lagi buka.</b> Tutup jam 22.00, masih sempat.`
-    : `<span class="dot"></span><b>Lagi tutup.</b> Buka lagi jam 08.00.`;
+    ? `<span class="dot"></span><span><b>Lagi buka.</b> Tutup jam 22.00, masih sempat.</span>`
+    : `<span class="dot"></span><span><b>Lagi tutup.</b> Buka lagi jam 08.00.</span>`;
 
   // ---------- LAMPU NEON BERJALAN
   const chiliIco = `<svg class="neon__ico" aria-hidden="true"><use href="#chili"/></svg>`;
@@ -551,32 +560,7 @@
       ${bits}<g fill="${C[0]}">${splat}${fall}</g></svg>${side ? `<div class="spill__cobek spill__cobek--${side}">${cobek}</div>` : ""}`;
   });
 
-  // ---------- SAMBAL TUMPAH INTERAKTIF: lelehan memanjang ke arah kursor, menetes, pop-up, klik = muncrat
-  const spillTip = document.createElement("div");
-  spillTip.className = "spill-tip";
-  spillTip.setAttribute("aria-hidden", "true");
-  document.body.append(spillTip);
-  const TIPS = [
-    ["Ups, sambalnya tumpah!", "Klik buat lihat sambal toples kami"],
-    ["Pedas level cobek.", "Klik, bawa pulang sambalnya"],
-    ["Awas netes!", "Sambal Bawang Segar cuma Rp30.000"],
-    ["Colek dikit?", "Ada 5 varian sambal, klik buat lihat"],
-    ["Jangan dijilat ya.", "Mending pesan toplesnya, klik di sini"],
-  ];
-  let tipT, tipOn = false;
-  const showTip = (e) => {
-    clearTimeout(tipT);
-    if (!tipOn) {
-      const [a, b] = TIPS[(Math.random() * TIPS.length) | 0];
-      spillTip.innerHTML = `<svg aria-hidden="true"><use href="#chili"/></svg><span><b>${a}</b>${b}</span>`;
-      spillTip.classList.add("on");
-      tipOn = true;
-    }
-    const x = Math.min(innerWidth - spillTip.offsetWidth - 12, e.clientX + 18), y = Math.min(innerHeight - spillTip.offsetHeight - 12, e.clientY + 20);
-    spillTip.style.transform = `translate(${x}px, ${y}px)`;
-  };
-  const hideTip = () => { clearTimeout(tipT); tipT = setTimeout(() => { spillTip.classList.remove("on"); tipOn = false; }, 260); };
-
+  // ---------- SAMBAL TUMPAH INTERAKTIF: lelehan memanjang ke arah kursor, menetes, klik = muncrat
   const blob = (host, x, y, r, color, dx, dy, dur) => {
     const i = document.createElement("i");
     i.className = "spill-drop";
@@ -603,7 +587,6 @@
       blob(el, sx, sy, Math.max(3, d.b * m.a * 0.9), color, 0, 120 + Math.random() * 60, 900);
     };
     svg.addEventListener("pointermove", (e) => {
-      showTip(e);
       if (calm) return;
       const p = toSvg(e);
       cx = p.x;
@@ -611,15 +594,12 @@
       const now = performance.now();
       drips.forEach((d, i) => { if (Math.abs(d.x - p.x) < d.w && now - (last[i] || 0) > 650) { last[i] = now; setTimeout(() => dripAt(d), 180); } });
     });
-    svg.addEventListener("pointerleave", () => { cx = null; if (!raf) raf = requestAnimationFrame(stretch); hideTip(); });
+    svg.addEventListener("pointerleave", () => { cx = null; if (!raf) raf = requestAnimationFrame(stretch); });
     svg.addEventListener("click", (e) => {
-      if (!calm) {
-        const r = el.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;
-        for (let i = 0; i < 14; i++) { const a = rand(-Math.PI * 0.95, -Math.PI * 0.05); blob(el, x, y, rand(3, 8), color, Math.cos(a) * rand(40, 140), Math.sin(a) * rand(30, 110) + 160, rand(700, 1100)); }
-        navigator.vibrate?.(10);
-      }
-      spillTip.classList.remove("on"); tipOn = false;
-      setTimeout(() => $("#sambal").scrollIntoView({ behavior: calm ? "auto" : "smooth" }), calm ? 0 : 380);
+      if (calm) return;
+      const r = el.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;
+      for (let i = 0; i < 14; i++) { const a = rand(-Math.PI * 0.95, -Math.PI * 0.05); blob(el, x, y, rand(3, 8), color, Math.cos(a) * rand(40, 140), Math.sin(a) * rand(30, 110) + 160, rand(700, 1100)); }
+      navigator.vibrate?.(10);
     });
   });
 
@@ -648,11 +628,12 @@
     para();
   }
 
-  // ---------- LAGU: coba putar otomatis, kalau diblokir browser putar di interaksi pertama
+  // ---------- LAGU: mati secara default. Hanya diputar kalau pengunjung menyalakannya sendiri;
+  // pilihan "on" diingat, jadi kunjungan berikutnya diputar di interaksi pertama
   const song = $("#song"), music = $("#music"), mBtn = $("#musicBtn"), mSw = $("#musicSw"), mStat = $("#musicStatus");
   let pref = null;
   try { pref = localStorage.getItem("agi-music"); } catch {}
-  let wantOn = pref !== "off", closeT;
+  let wantOn = pref === "on", closeT;
   song.volume = 0.5;
   const peek = (ms = 3500) => { music.classList.add("open"); clearTimeout(closeT); closeT = setTimeout(() => music.classList.remove("open"), ms); };
   const paint = () => {
@@ -660,12 +641,13 @@
     music.classList.toggle("playing", on);
     mBtn.setAttribute("aria-pressed", on); mSw.setAttribute("aria-checked", on);
     mBtn.setAttribute("aria-label", on ? "Matikan lagu" : "Nyalakan lagu");
-    mStat.textContent = on ? "Lagi diputar" : wantOn ? "Ketuk di mana saja untuk memutar" : "Lagu dimatikan";
+    mStat.textContent = on ? "Lagi diputar" : wantOn ? "Ketuk di mana saja untuk memutar" : pref === "off" ? "Lagu dimatikan" : "Ketuk untuk memutar lagu";
   };
   const play = () => song.play().then(paint).catch(paint);
   const setMusic = (on) => {
     wantOn = on;
-    try { localStorage.setItem("agi-music", on ? "on" : "off"); } catch {}
+    pref = on ? "on" : "off";
+    try { localStorage.setItem("agi-music", pref); } catch {}
     on ? play() : (song.pause(), paint());
     peek();
   };
@@ -682,6 +664,14 @@
   ["pointerdown", "keydown"].forEach((t) => addEventListener(t, firstTouch));
   if (wantOn) play(); else paint();
   setTimeout(() => peek(5000), 1200);
+  // hero terlihat? Mobile: pemutar menyingkir (lihat .music.in-hero di CSS) dan FAB WhatsApp belum muncul
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(([e]) => {
+      music.classList.toggle("in-hero", e.isIntersecting);
+      inHero = e.isIntersecting;
+      syncFab();
+    }).observe($(".hero"));
+  } else { inHero = false; syncFab(); }
 
   requestAnimationFrame(() => requestAnimationFrame(() => document.body.classList.add("ready")));
 })();
